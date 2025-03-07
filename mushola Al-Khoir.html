@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="id"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Jadwal Imsakiyah</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ <style type="text/css" id="dcoder_stylesheet">body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #000;
+    color: white;
+}
+
+.menu {
+    background-color: red;
+    padding: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#video-container {
+    display: none; /* Awalnya disembunyikan */
+    margin-top: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+}
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #ff4d4d, #ff0000);
+    padding: 10px 15px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.navbar-logo {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    flex-grow: 1;
+    margin: 0 10px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex-grow: 1;
+}
+
+/* Tombol Menu */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
+
+.dropdown-menu a:hover {
+    background: #ddd;
+}
+
+/* Konten */
+.content {
+    text-align: center;
+    padding: 70px 20px 20px;
+}
+
+/* Kotak Jam */
+.clock-container {
+    background: white;
+    color: black;
+    padding: 15px;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 10px;
+}
+
+/* Tabel Jadwal */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+thead {
+    background: red;
+    color: white;
+}
+
+tbody tr {
+    background: #222;
+}</style></head> 
+ <body> <!-- Navbar --> 
+  <div class="navbar"> 
+   <div class="navbar-logo">
+     HRSTV.<span style="color: red;">HD</span> 
+   </div> 
+   <div class="search-box"> 
+    <input type="text" placeholder="Cari..."> <button>🔍</button> 
+   </div> 
+   <div class="menu-icon">
+     ☰ 
+   </div> 
+   <div class="menu-icon" onclick="toggleMenu()"> 
+   </div> 
+   <div id="dropdown-menu" class="dropdown-menu"> <a href="#">Home</a> <a href="uuuu" target="_blank">mushola sabilulhaq</a> <a href="#">Al-Qur'an</a> <a href="content://com.paprbit.dcoder.fileprovider/files/temp.html" target="_blank">VIDEO</a> 
+   </div> 
+  </div> <!-- Dropdown Menu --> ! 
+  <div class="content"> 
+   <h2>Jadwal Imsakiyah Ramadan 1446 H</h2> 
+   <p>Musholla Al-Khoir, Desa Marga Mulya, Mauk, Tangerang, Banten</p> <!-- Kotak Jam --> 
+   <div class="clock-container"> 
+    <p><strong>Jam:</strong> <span id="clock">--:--:--</span></p> 
+    <p>Tanggal Masehi: <span id="tanggal-masehi">...</span></p> 
+    <p>Tanggal Hijriah: <span id="tanggal-hijriah">...</span></p> 
+    <script>
+    function updateHijriDate() {
+        let today = new Date(); // Ambil tanggal Masehi hari ini
+        let hijriFormatter = new Intl.DateTimeFormat('ar-TN-u-ca-islamic', { 
+            day: 'numeric', month: 'long', year: 'numeric'
+        });
+        let hijriDate = hijriFormatter.format(today); // Konversi ke Hijriah
+
+        document.getElementById("tanggal-hijriah").textContent = hijriDate; 
+    }
+
+    updateHijriDate(); // Jalankan fungsi saat halaman dimuat
+</script> 
+   </div> <!-- Tabel Jadwal --> 
+   <table> 
+    <thead> 
+     <tr> 
+      <th>Tanggal</th> 
+      <th>Imsak</th> 
+      <th>Subuh</th> 
+      <th>Terbit</th> 
+      <th>Dhuha</th> 
+      <th>Zuhur</th> 
+      <th>Ashar</th> 
+      <th>Maghrib</th> 
+      <th>Isya</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <script>
+                    const jadwalImsakiyah = [
+    ["1 Maret", "04:33", "04:43", "05:55", "06:22", "12:08", "15:12", "18:15", "19:24"],
+    ["2 Maret", "04:33", "04:43", "05:55", "06:22", "12:08", "15:11", "18:14", "19:23"],
+    ["3 Maret", "04:33", "04:43", "05:55", "06:22", "12:08", "15:11", "18:14", "19:23"],
+    ["4 Maret", "04:33", "04:43", "05:55", "06:22", "12:08", "15:10", "18:14", "19:23"],
+    ["5 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:09", "18:13", "19:22"],
+    ["6 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:08", "18:13", "19:22"],
+    ["7 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:08", "18:13", "19:22"],
+    ["8 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:07", "18:12", "19:21"],
+    ["9 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:06", "18:12", "19:21"],
+    ["10 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:06", "18:12", "19:21"],
+    ["11 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:05", "18:11", "19:20"],
+    ["12 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:04", "18:11", "19:20"],
+    ["13 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:03", "18:11", "19:20"],
+    ["14 Maret", "04:31", "04:41", "05:54", "06:21", "12:07", "15:03", "18:11", "19:20"],
+    ["15 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "15:02", "18:10", "19:19"],
+    ["16 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "15:01", "18:10", "19:19"],
+    ["17 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "15:00", "18:10", "19:19"],
+    ["18 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:59", "18:09", "19:18"],
+    ["19 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:58", "18:09", "19:18"],
+    ["20 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:57", "18:09", "19:18"],
+    ["21 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:57", "18:08", "19:17"],
+    ["22 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:56", "18:08", "19:17"],
+    ["23 Maret", "04:31", "04:41", "05:53", "06:21", "12:07", "14:55", "18:08", "19:17"],
+    ["24 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:54", "18:07", "19:16"],
+    ["25 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:53", "18:07", "19:16"],
+    ["26 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:52", "18:07", "19:16"],
+    ["27 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:51", "18:06", "19:15"],
+    ["28 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:50", "18:06", "19:15"],
+    ["29 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:49", "18:06", "19:15"],
+    ["30 Maret", "04:31", "04:41", "05:52", "06:21", "12:07", "14:48", "18:05", "19:14"]
+];
+
+                    let tableBody = "";
+                    jadwalImsakiyah.forEach(row => {
+                        tableBody += `<tr>`;
+                        row.forEach(cell => {
+                            tableBody += `<td>${cell}</td>`;
+                        });
+                        tableBody += `</tr>`;
+                    });
+
+                    document.write(tableBody);
+                </script> 
+    </tbody> 
+   </table> 
+  </div> 
+  <script src="script.js"></script> 
+  <footer style="text-align: center; padding: 10px; background: gold; color: black; position: fixed; bottom: 0; width: 100%;">
+    © Saepul Haris27 ® 2025. All Rights Reserved. 
+  </footer> 
+ 
+<script type="text/javascript" id="dcoder_script">document.addEventListener("DOMContentLoaded", function() {
+    // Menu dropdown
+    const menuIcon = document.querySelector(".menu-icon");
+    const dropdownMenu = document.querySelector(".dropdown-menu");
+
+    menuIcon.addEventListener("click", function() {
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function(event) {
+        if (!menuIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+
+    // Jam real-time
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Update tanggal
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("tanggal-masehi").textContent = new Date().toLocaleDateString('id-ID', options);
+    document.getElementById("tanggal-masehi").textContent = new Date().toLocaleDateString('id-ID', options);
+});</script></body></html>
